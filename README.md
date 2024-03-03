@@ -4,10 +4,8 @@
 
 
 
-<p align="center">It's a pleasure to have you here</p>
+<p align="center">“Talk is cheap. Show me the code.”</p>
 
-
-<p align="center">👋</p>
 
 
 
