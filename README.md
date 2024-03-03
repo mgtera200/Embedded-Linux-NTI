@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://tenor.com/view/linux-gnu-kernel-kernellinux-linuxkernel-gif-25835995" width=700>
+  <img src="https://github.com/mgtera200/Embedded-Linux-NTI/assets/127119775/ba8b75ae-488d-437d-b7d2-ddf296c91d41" width=700>
 </p>
 
 
