@@ -17,7 +17,7 @@
 	- Static Library: liboperation.a
 
 
-### Steps
+### How i solved the assignment 
 
 1- Generate the binary files for Function.c
 	- ```gcc -c Codes.c/*.c``` 
