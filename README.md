@@ -15,9 +15,9 @@
 
 ---
 
-# NTI Tasks Repository
+# NTI Embedded Linux Repository
 
-Welcome to the NTI Tasks Repository!
+Welcome to NTI Embedded Linux Repository!
 
 This repository serves as a comprehensive documentation of the tasks completed during my 4-month National Telecommunication Institute (NTI) program. Each task is meticulously documented, providing detailed insights into the main assignment requirements and my approach to solving them.
 
