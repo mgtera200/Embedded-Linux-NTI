@@ -2,6 +2,12 @@
 #include <math.h>
 #include "../Codes.h/addition.h"
 #include "../Codes.h/subtraction.h"
+#include "../Codes.h/modulus.h"
+#include "../Codes.h/multiplication.h"
+#include "../Codes.h/division.h"
+
+
+
 
 int main() {
     char operator;
@@ -22,13 +28,21 @@ int main() {
             result = sub(num1,num2);
             break;
         case '*':
-            // Implement Code Please <3
+            result = multiplication(num1,num2);
             break;
         case '/':
-            // Implement Code Please <3
+            if(num2 == 0)
+            {
+                printf("ERROR! num2 can't be zero\n");
+            }
+            else
+            { 
+                result = division(num1,num2);
+            }
             break;
         case '%':
-            // Implement Code Please <3
+            result = modulus(num1,num2);
+            break;
         default:
             printf("Error! Invalid operator.\n");
             return 1; 
