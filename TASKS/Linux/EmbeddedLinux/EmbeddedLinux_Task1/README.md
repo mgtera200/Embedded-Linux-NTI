@@ -1,4 +1,4 @@
-### Description
+### Task Description
 
 - Assignment: 
 	- Creating Calculator Libraries and Application
@@ -17,7 +17,7 @@
 	- Static Library: liboperation.a
 
 
-### How i solved the assignment 
+### How i solved the Task
 
 1- Generate the binary files for Function.c
 	- ```gcc -c Codes.c/*.c``` 
