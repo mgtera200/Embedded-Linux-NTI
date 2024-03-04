@@ -4,7 +4,7 @@
 
 
 
-<p align="center">"In a world of limitations, Linux opens endless possibilities."</p>
+<p align="center">**"In a world of limitations, Linux opens endless possibilities."**</p>
 
 
 
