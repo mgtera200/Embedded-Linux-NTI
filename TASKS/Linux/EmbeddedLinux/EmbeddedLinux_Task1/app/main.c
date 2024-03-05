@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
-#include "../Codes.h/addition.h"
-#include "../Codes.h/subtraction.h"
-#include "../Codes.h/modulus.h"
-#include "../Codes.h/multiplication.h"
-#include "../Codes.h/division.h"
+#include "../Includes/addition.h"
+#include "../Includes/subtraction.h"
+#include "../Includes/modulus.h"
+#include "../Includes/multiplication.h"
+#include "../Includes/division.h"
 
 
 
