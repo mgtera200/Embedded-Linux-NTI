@@ -6,8 +6,6 @@
 - Write a script that takes a list of directories as arguments and creates a compressed backup (tarball) of each specified directory.
 - The script should include the current date in the backup filename and store the backups in a designated backup directory.
 
----
-
 ## Objective: 
 - The script should accept one or more directory paths as command-line arguments.
 - For each specified directory, create a compressed backup file in the format backup_<directory>_<date>.tar.gz.
@@ -55,10 +53,10 @@ fi
 
 ---
 
-# Script Features
+# My Bash Script Features
 
 - Checks if no arguments are given.
-- Check if the backup directory doesn't exist and creates one.
+- Check if the backup directory doesn't exist in Home and creates one if it doesn't exist.
 - Check that the path given as argument is valid and that the directory exists.
 - Check whether the backup operation for each directory is completed successfully or failed.
 
