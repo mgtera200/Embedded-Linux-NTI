@@ -58,7 +58,8 @@ now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 3- **Generate the executable file**
 	- ```gcc ./app/main.c -L./Library -lTERA -o maindyn.elf```
 
-4- **Notice here**
+**Notice here:**
+
 	- file maindyn.elf 
 ```
 maindyn.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6748461526784446e3a3787f2470ea02e6442e69, for GNU/Linux 3.2.0, not stripped
@@ -74,14 +75,13 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
        
 	- To solve not found problem we have 3 methods:
      		- -> sudo cp libTERA.so /usr/lib
-			>ldd maindyn.elf 
-				>>
-				```
-				linux-vdso.so.1 (0x00007fff6a3ba000)
-				**libTERA.so => /lib/libTERA.so (0x00007f7efbf2b000)**
-				libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
-				/lib64/ld-linux-x86-64.so.2 (0x00007f7efbf48000)
-				```
+		      > ldd maindyn.elf 
+		      >> ``` 
+		         linux-vdso.so.1 (0x00007fff6a3ba000)
+			 libTERA.so => /lib/libTERA.so (0x00007f7efbf2b000)
+			 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
+			 /lib64/ld-linux-x86-64.so.2 (0x00007f7efbf48000)
+			 ```
 
 
 		- -> export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/
