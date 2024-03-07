@@ -31,7 +31,7 @@
 	
 3- **Generate the executable file**
 
-	  gcc ./app/main.c -L. ./Library/TeraLib.a
+	  gcc ./app/main.c -L. ./Library_Static/TeraLib.a
 	  
 
 ## IMPORTANT NOTES:
@@ -63,7 +63,7 @@ Now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 
 3- **Generate the executable file**
 
-	  gcc ./app/main.c -L./Library -lTERA -o maindyn.elf
+	  gcc ./app/main.c -L./Library_Dynamic -lTERA -o maindyn.elf
 
 
 ## IMPORTANT NOTES:
