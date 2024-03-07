@@ -1,23 +1,23 @@
 # Task Description
 
-- **Assignment**: 
+## Assignment: 
 	- Creating Calculator Libraries and Application
 
-- **Objective**: 
+## Objective: 
 	- You are tasked with creating both a static library (liboperation.a) and a shared library for a simple calculator.
 	- The calculator functionalities should be implemented in separate files for addition, subtraction, multiplication, division, and modulus operations.
 	
-- **Files to Create (for each operation):**
+## Files to Create (for each operation):
 	- addition.c: Implementation of addition.
 	- subtraction.c: Implementation of subtraction.
 	- multiplication.c: Implementation of multiplication.
 	- division.c: Implementation of division.
 	- modulus.c: Implementation of modulus.
-- **Library Names:**
+## Library Names:
 	- Static Library: liboperation.a
 	- Shared Library: liboperation.so
 
-
+---
 
 # 1- Static Library
 
