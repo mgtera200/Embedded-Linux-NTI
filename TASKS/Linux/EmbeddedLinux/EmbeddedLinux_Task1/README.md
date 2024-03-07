@@ -49,6 +49,12 @@ So this means that my mainstatic.elf file is still **dynamically linked**, to ma
 
 Now ```ldd mainstatic.elf``` will result in ```not a dynamic executable``` and the file size will be **much bigger** than before.
 
+Also if we use file command ```file mainstatic.elf```
+
+You see that it is statically linked:
+```
+mainstatic.elf: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=f4cb1e54769ac57cee717fd927c400c4f47b1df3, for GNU/Linux 3.2.0, not stripped
+```
 ---
 
 # 2- Dynamic Library
@@ -140,4 +146,23 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f83f5600000)
 ---
 
 ### NOTE THAT : THE DYNAMIC LINKER PRIORITY FOR THESE METHODS IS #2, #3, #1
+
+
+# COMPARISON
+
+| Feature             | Static Library                           | Shared Library                           |
+|---------------------|------------------------------------------|------------------------------------------|
+| File Extension      | `.a` (Archive)                           | `.so` (Shared Object)                   |
+| Compilation         | Compiled into the final executable      | Compiled separately and linked at runtime |
+| Size                | Larger                                    | Smaller                                  |
+| Memory Usage        | Entire library is loaded into memory     | Portions of the library are loaded on demand |
+| Linking Time        | Longer                                   | Shorter                                  |
+| Dependency          | Embeds library code into the executable | Requires the library to be present at runtime |
+| Portability         | Less portable (platform dependent)       | More portable (can be shared among different applications) |
+| Reusability         | Less reusable (specific to the application) | More reusable (can be shared among multiple applications) |
+| Versioning          | No versioning support                    | Supports versioning                      |
+| Updates             | Requires recompilation for updates       | Can be updated independently of applications |
+| Security            | Generally more secure (no runtime dependencies) | Potential security concerns (shared code execution) |
+| Debugging           | Easier to debug (source code included)  | Harder to debug (need debug symbols and original library) |
+
 
