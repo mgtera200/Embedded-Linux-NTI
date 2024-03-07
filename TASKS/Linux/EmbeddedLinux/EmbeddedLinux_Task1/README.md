@@ -149,7 +149,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f83f5600000)
 
 ---
 
-# COMPARISON
+# 3- STATIC VS DYNAMIC
 
 | Feature             | Static Library                           | Shared Library                           |
 |---------------------|------------------------------------------|------------------------------------------|
