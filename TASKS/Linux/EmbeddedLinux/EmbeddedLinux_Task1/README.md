@@ -19,7 +19,7 @@
 
 
 
-# Static Library
+# 1- Static Library
 
 1- **Generate the binary files for Function.c**
 
@@ -52,19 +52,19 @@ now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 
 ---
 
-# Dynamic Library
+# 2- Dynamic Library
 
 1- **Generate the binary files for Function.c**
 
-	- gcc -c -Wall -fPIC ./Functions.c/*.c
+	  gcc -c -Wall -fPIC ./Functions.c/*.c
 
 2- **Generate the library**	
 
-	- ```gcc -shared *.o -o libTERA.so```
+	  gcc -shared *.o -o libTERA.so
 
 3- **Generate the executable file**
 
-	- ```gcc ./app/main.c -L./Library -lTERA -o maindyn.elf```
+	  gcc ./app/main.c -L./Library -lTERA -o maindyn.elf
 
 ---
 
@@ -90,7 +90,6 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
 
 ## To solve [ libTERA.so => not found ] problem we have 3 methods:
 
----
 
 ## Method 1
 
