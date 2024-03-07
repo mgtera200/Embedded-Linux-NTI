@@ -31,12 +31,12 @@
 	
 3- **Generate the executable file**
 
-	  gcc ./app/main.c -L. ./Library_Static/TeraLib.a
+	  gcc ./app/main.c -L. ./Library_Static/TeraLib.a -o mainstatic.elf
 	  
 
 ## IMPORTANT NOTES:
 
- ```ldd a.out``` will result in:
+ ```ldd mainstatic.elf``` will result in:
 
 > 
 ```
@@ -45,9 +45,9 @@
  /lib64/ld-linux-x86-64.so.2 (0x00007fde5240c000)
 ```
 
-So this means that my a.out file is still **dynamically linked**, to make it full statically linked we use ```gcc -static ./app/main.c -L. ./Library/TeraLib.a ```
+So this means that my mainstatic.elf file is still **dynamically linked**, to make it full statically linked we use ```gcc -static ./app/main.c -L. ./Library/TeraLib.a ```
 
-Now ```ldd a.out``` will result in ```not a dynamic executable``` and the file size will be **much bigger** than before.
+Now ```ldd mainstatic.elf``` will result in ```not a dynamic executable``` and the file size will be **much bigger** than before.
 
 ---
 
@@ -70,7 +70,7 @@ Now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 
 When using file command ```file maindyn.elf``` 
 
-We see that it is dynamically linked:
+You see that it is dynamically linked:
 
 ```
 maindyn.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6748461526784446e3a3787f2470ea02e6442e69, for GNU Linux 3.2.0, not stripped
@@ -78,7 +78,7 @@ maindyn.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamicall
 
 When using ldd command ```ldd maindyn.elf```
 
-We see that the library address **not found:**
+You see that the library address **not found:**
  
 ```linux-vdso.so.1 (0x00007fff30f8f000)
 libTERA.so => not found
@@ -91,11 +91,11 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
 
 ## METHOD #1
 
-We copy the library to /usr/lib ```sudo cp libTERA.so /usr/lib```
+Copy the library to /usr/lib ```sudo cp libTERA.so /usr/lib```
  
-So when we use ldd command ```ldd maindyn.elf```
+So when you use ldd command ```ldd maindyn.elf```
  
-We find that the proplem got solved
+You find that the proplem got solved
        
 ```
 linux-vdso.so.1 (0x00007fff6a3ba000)
@@ -108,11 +108,11 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
 
 ## METHOD #2
 
-Make environment variable and initialize its value with the library path -> **export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/**
+Make environment variable and initialize its value with the library path ```export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/```
 
-Now when we use ldd command ```ldd maindyn.elf``` 
+Now when you use ldd command ```ldd maindyn.elf``` 
 
-when find that the proplem got solved
+You find that the proplem got solved
 
 ```
 linux-vdso.so.1 (0x00007ffee67f8000)
