@@ -35,7 +35,7 @@
 	  
 ---
 
-## Notices
+## IMPORTANT NOTES
 
  ```ldd a.out``` will result in:
 
@@ -68,31 +68,35 @@ now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 
 ---
 
-## Notices
+## IMPORTANT NOTES
 
 When using file command -> **file maindyn.elf** 
+
+We see that it is dynamically linked:
 
 ```
 maindyn.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6748461526784446e3a3787f2470ea02e6442e69, for GNU Linux 3.2.0, not stripped
 ```
 
 When using ldd command -> **ldd maindyn.elf**
+
+We see that the library address **not found**:
  
 ```linux-vdso.so.1 (0x00007fff30f8f000)
 libTERA.so => not found
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
 /lib64/ld-linux-x86-64.so.2 (0x00007f0035838000)
 ```
----
 
 ## To solve [ libTERA.so => not found ] problem we have 3 methods:
 
+---
 
-### Method 1
+## Method 1
 
-We copy the library to /usr/lib **sudo cp libTERA.so /usr/lib**
+We copy the library to /usr/lib -> **sudo cp libTERA.so /usr/lib**
  
-so when we use ldd command **ldd maindyn.elf**
+so when we use ldd command -> **ldd maindyn.elf**
  
 we find that the proplem got solved
        
@@ -105,9 +109,9 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
 
 ---
 
-### Method 2
+## Method 2
 
-**export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/**
+Make environment variable and initialize its value with the library path -> **export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/**
 
 now when we use ldd command -> **ldd maindyn.elf** 
 
@@ -122,9 +126,9 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff69f000000)
        
 ---
        
-### Method 3
+## Method 3
 
-We use put the library path during compilation **gcc ./app/main.c -L./Library/ -Wl,-rpath=./Library/ -Wall -lTERA -o maindyn.elf**
+We use put the library path during compilation -> **gcc ./app/main.c -L./Library/ -Wl,-rpath=./Library/ -Wall -lTERA -o maindyn.elf**
 
 now when we use lld command -> **ldd maindyn.elf** 
 			       
