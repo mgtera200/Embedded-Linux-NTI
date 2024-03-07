@@ -23,12 +23,15 @@
 ### Static Library
 
 1- **Generate the binary files for Function.c**
+
 	- ```gcc -c Functions.c/*.c``` 
 
 2- **Generate the library**
+
 	- ```ar rcs TeraLib.a ./Files.o/*.o```
 	
 3- **Generate the executable file**
+
 	- ```gcc ./app/main.c -L. ./Library/TeraLib.a```
 	
 **Notice here:**
@@ -50,43 +53,42 @@ now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 ### Dynamic Library
 
 1- **Generate the binary files for Function.c**
+
 	- ```gcc -c -Wall -fPIC ./Functions.c/*.c```
 
 2- **Generate the library**	
+
 	- ```gcc -shared *.o -o libTERA.so```
 
 3- **Generate the executable file**
+
 	- ```gcc ./app/main.c -L./Library -lTERA -o maindyn.elf```
 
 **Notice here:**
 
-	- file maindyn.elf 
-```
-maindyn.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6748461526784446e3a3787f2470ea02e6442e69, for GNU/Linux 3.2.0, not stripped
+- file maindyn.elf 
+```maindyn.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6748461526784446e3a3787f2470ea02e6442e69, for GNU Linux 3.2.0, not stripped
 ```
 
-	- ldd maindyn.elf 
-```
-linux-vdso.so.1 (0x00007fff30f8f000)
+- ldd maindyn.elf 
+```linux-vdso.so.1 (0x00007fff30f8f000)
 libTERA.so => not found
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
 /lib64/ld-linux-x86-64.so.2 (0x00007f0035838000)
 ```
        
-	- To solve not found problem we have 3 methods:
-     		- -> sudo cp libTERA.so /usr/lib
-		      > ldd maindyn.elf 
-		      >> ``` 
-		         linux-vdso.so.1 (0x00007fff6a3ba000)
-			 libTERA.so => /lib/libTERA.so (0x00007f7efbf2b000)
-			 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
-			 /lib64/ld-linux-x86-64.so.2 (0x00007f7efbf48000)
-			 ```
-
+- To solve not found problem we have 3 methods:
+    - sudo cp libTERA.so /usr/lib
+       - ldd maindyn.elf 
+           ```linux-vdso.so.1 (0x00007fff6a3ba000)
+           libTERA.so => /lib/libTERA.so (0x00007f7efbf2b000)
+	   libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
+           /lib64/ld-linux-x86-64.so.2 (0x00007f7efbf48000)
+  	   ```
 
 		- -> export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/
 
-			> ldd maindyn.elf 
+		  - ldd maindyn.elf 
 			       >> ```linux-vdso.so.1 (0x00007ffee67f8000)
 			       **libTERA.so => /home/eng-tera/Documents/Dynamic_Library/libTERA.so (0x00007ff69f31e000)**
 			       libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff69f000000)
