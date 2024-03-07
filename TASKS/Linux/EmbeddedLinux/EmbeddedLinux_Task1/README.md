@@ -33,7 +33,6 @@
 
 	  gcc ./app/main.c -L. ./Library/TeraLib.a
 	  
----
 
 ## IMPORTANT NOTES
 
@@ -66,7 +65,6 @@ now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 
 	  gcc ./app/main.c -L./Library -lTERA -o maindyn.elf
 
----
 
 ## IMPORTANT NOTES
 
