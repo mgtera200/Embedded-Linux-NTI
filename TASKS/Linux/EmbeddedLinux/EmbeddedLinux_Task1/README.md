@@ -137,5 +137,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f83f5600000)
 /lib64/ld-linux-x86-64.so.2 (0x00007f83f5a43000)```
 ```
 
+---
 
+___The priority of these Methods are 2,3,1___
 
