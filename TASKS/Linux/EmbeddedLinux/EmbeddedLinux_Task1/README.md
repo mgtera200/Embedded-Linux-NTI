@@ -147,6 +147,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f83f5600000)
 
 ### NOTE THAT : THE DYNAMIC LINKER PRIORITY FOR THESE METHODS IS #2, #3, #1
 
+---
 
 # COMPARISON
 
