@@ -34,7 +34,7 @@
 	  gcc ./app/main.c -L. ./Library/TeraLib.a
 	  
 
-## IMPORTANT NOTES
+## IMPORTANT NOTES:
 
  ```ldd a.out``` will result in:
 
@@ -66,7 +66,7 @@ now ```ldd a.out``` will result in ```not a dynamic executable``` and the file s
 	  gcc ./app/main.c -L./Library -lTERA -o maindyn.elf
 
 
-## IMPORTANT NOTES
+## IMPORTANT NOTES:
 
 When using file command -> **file maindyn.elf** 
 
@@ -86,10 +86,10 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
 /lib64/ld-linux-x86-64.so.2 (0x00007f0035838000)
 ```
 
-## To solve [ libTERA.so => not found ] problem we have 3 methods:
+## TO SOLVE [ libTERA.so => not found ] PROBLEM WE HAVE 3 METHODS:
 
 
-## Method 1
+## METHOD #1
 
 We copy the library to /usr/lib -> **sudo cp libTERA.so /usr/lib**
  
@@ -106,7 +106,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
 
 ---
 
-## Method 2
+## METHOD #2
 
 Make environment variable and initialize its value with the library path -> **export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/**
 
@@ -123,7 +123,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff69f000000)
        
 ---
        
-## Method 3
+## METHOD #3
 
 We use put the library path during compilation -> **gcc ./app/main.c -L./Library/ -Wl,-rpath=./Library/ -Wall -lTERA -o maindyn.elf**
 
