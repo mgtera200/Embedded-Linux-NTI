@@ -47,7 +47,7 @@
 
 So this means that my a.out file is still **dynamically linked**, to make it full statically linked we use ```gcc -static ./app/main.c -L. ./Library/TeraLib.a ```
 
-now ```ldd a.out``` will result in ```not a dynamic executable``` and the file size will be **much bigger** than before.
+Now ```ldd a.out``` will result in ```not a dynamic executable``` and the file size will be **much bigger** than before.
 
 ---
 
@@ -93,9 +93,9 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0035400000)
 
 We copy the library to /usr/lib ```sudo cp libTERA.so /usr/lib```
  
-so when we use ldd command ```ldd maindyn.elf```
+So when we use ldd command ```ldd maindyn.elf```
  
-we find that the proplem got solved
+We find that the proplem got solved
        
 ```
 linux-vdso.so.1 (0x00007fff6a3ba000)
@@ -110,7 +110,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7efbc00000)
 
 Make environment variable and initialize its value with the library path -> **export LD_LIBRARY_PATH=~/Documents/Dynamic_Library/**
 
-now when we use ldd command ```ldd maindyn.elf``` 
+Now when we use ldd command ```ldd maindyn.elf``` 
 
 when find that the proplem got solved
 
@@ -127,7 +127,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff69f000000)
 
 We use put the library path during compilation ```gcc ./app/main.c -L./Library/ -Wl,-rpath=./Library/ -Wall -lTERA -o maindyn.elf```
 
-now when we use lld command ```ldd maindyn.elf``` 
+Now when we use ldd command ```ldd maindyn.elf``` 
 			       
 
 ```		       
