@@ -1,61 +1,36 @@
-# Makefile Description
+# Static Library Makefile Description
 
-## Overview
-This Makefile is designed to generate a static library and an executable file (.elf) from source files located in user-defined directories. It allows users to specify the source and object directories and provides targets for compiling the source files into object files, creating a static library, and linking the executable. Additionally, it sets a `PATH` variable to include the binary path of the cross-compiler, reducing the need for users to define it every time they open the terminal.
+This Makefile is designed to generate a static library for ARM Cortex-A9 architecture using a cross toolchain (`arm-cortexa9_neon-linux-musleabihf-`). Below is a detailed explanation of each section and functionality provided by the Makefile:
 
-## Features
-- **User-Defined Directories**: Users can specify the source and object directories by setting variables within the Makefile.
-- **Flexible Compilation**: Supports compilation of source files from custom directories into object files, providing flexibility in project organization.
-- **Static Library Generation**: Creates a static library (.a file) from the compiled object files.
-- **Executable Generation**: Generates an executable file (.elf) by linking object files with the static library.
-- **Cleanup Targets**: Provides cleanup targets to remove generated files and directories.
-- **Predefined PATH**: Sets the `PATH` variable to include the binary path of the cross-compiler, simplifying the setup for cross-compilation.
+## Variables:
 
-## Structure
-- **Variables**: Defines variables for compiler, compiler flags, directories, file names, and `PATH`.
-- **Targets**:
-  - `all`: Default target to build the static library and the executable.
-  - `$(LIB_NAME).a`: Target to create the static library from object files.
-  - `$(APP_NAME).elf`: Target to link the executable from object files and the static library.
-  - `clean`: Target to remove generated files and directories.
-  - `clean_all`: Target to perform a thorough cleanup, removing all generated files and directories.
-- **Rules**: Defines rules to compile source files into object files, create the static library, and link the executable.
+- **CC**: Compiler command used for compiling C code.
+- **LibFlags**: Flags passed to the archiver for creating the static library (`rcs`).
+- **INCS**: Include directories for header files.
+- **SRCDIR**: Directory containing source files (`Files.c`).
+- **OBJDIR**: Directory for storing object files.
+- **APPDIR**: Directory containing the application code.
+- **StaticLibDir**: Directory for storing the generated static library.
+- **SRC**: List of source files.
+- **OBJ**: List of object files generated from source files.
+- **APP_NAME**: Name of the application.
+- **LIB_NAME**: Name of the static library.
+- **ELF_NAME**: Name of the executable file.
 
-## Usage
-1. **Set Directories**: Optionally, modify the `SRCDIR` and `OBJDIR` variables to specify the source and object directories, respectively.
-2. **Build Library and Executable**: Run `make` to compile the source files into object files, generate the static library, and link the executable.
-3. **Cleanup**: Run `make clean` to remove generated files and directories.
+## Targets:
 
-## My Makefile for a static library
-```
-CC=arm-cortexa9_neon-linux-musleabihf-
-LibFlags=rcs
-INCS=-I ./Includes
-SRCDIR = Files.c
-OBJDIR = Files.o
-APPDIR = APP
-StaticLibDir = StaticLib
-SRC = $(wildcard $(SRCDIR)/*.c)
-OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
-APP_NAME = main
-LIB_NAME=TeraLib
-ELF_NAME=mainstatic
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/eng-tera/x-tools/arm-cortexa9_neon-linux-musleabihf/bin
+- **all**: Default target that generates the ELF executable file (`$(ELF_NAME).elf`) after building the static library.
+- **%.o**: Rule for generating object files from C source files.
+- **$(StaticLibDir)/$(LIB_NAME).a**: Target for generating the static library.
+- **$(ELF_NAME).elf**: Target for generating the ELF executable file using the static library.
 
-all: $(ELF_NAME).elf
-	@echo "Build is done successfully [ Eng.TERA ]"
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-	mkdir -p $(dir $@)
-	$(CC)cc -c $(INCS) $< -o $@
-	
-StaticLib/$(LIB_NAME).a: $(OBJ)
-	mkdir $(StaticLibDir)
-	$(CC)ar $(LibFlags) $@ $(OBJ)
-$(ELF_NAME).elf: $(StaticLibDir)/$(LIB_NAME).a
-	$(CC)gcc $(APPDIR)/$(APP_NAME).c $(INCS) $(StaticLibDir)/$(LIB_NAME).a -o $@
+## Rules:
 
-clean:
-	rm *.elf 
-	rm -r $(StaticLibDir) $(OBJDIR)
-	@echo "Directory is cleaned successfully [ Eng.TERA ]"
+1. **%.o**: Compiles each source file in `$(SRCDIR)` to its corresponding object file in `$(OBJDIR)`.
+2. **$(StaticLibDir)/$(LIB_NAME).a**: Generates the static library by archiving all object files.
+3. **$(ELF_NAME).elf**: Links the application code with the static library to generate the ELF executable file.
+
+## Clean:
+
+- **clean**: Removes all generated ELF files, static library, and object files, and cleans up directories.
 
