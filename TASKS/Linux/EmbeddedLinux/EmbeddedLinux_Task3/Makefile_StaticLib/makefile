@@ -14,6 +14,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/us
 
 all: $(ELF_NAME).elf
 	@echo "Build is done successfully [ Eng.TERA ]"
+	
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(dir $@)
 	$(CC)cc -c $(INCS) $< -o $@
@@ -21,6 +22,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 StaticLib/$(LIB_NAME).a: $(OBJ)
 	mkdir $(StaticLibDir)
 	$(CC)ar $(LibFlags) $@ $(OBJ)
+	
 $(ELF_NAME).elf: $(StaticLibDir)/$(LIB_NAME).a
 	$(CC)gcc -static $(APPDIR)/$(APP_NAME).c $(INCS) $(StaticLibDir)/$(LIB_NAME).a -o $@
 

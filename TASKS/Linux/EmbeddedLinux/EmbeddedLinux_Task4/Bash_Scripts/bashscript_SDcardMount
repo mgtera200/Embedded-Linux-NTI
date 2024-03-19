@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+DISK=$(sudo losetup -f --show --partscan ~/sdCard/sd.img)
+
+export DISK
+
+if sudo mkfs.vfat -F 16 -n boot ${DISK}p1; then
+echo "<Eng.TERA Message> FAT data structure implemented on p1 Successfully!"
+fi
+
+if sudo mkfs.ext4 -L rootfs ${DISK}p2; then
+echo "<Eng.TERA Message> ext4 data structure implemented on p2 Successfully!"
+fi
+
+if sudo mount ${DISK}p1 ~/sdCard/sd; then
+echo "<Eng.TERA Message> Mounting p1 to sd is done Successfully!"
+fi
+
+if sudo mount ${DISK}p2 ~/sdCard/sd2; then
+echo "<Eng.TERA Message> Mounting p2 to sd is done Successfully!"
+fi
+
+bash
