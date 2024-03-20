@@ -4,9 +4,12 @@
 The task involves creating a script that instructs U-Boot to attempt loading the Zimage file from a TFTP server first. If the loading from the TFTP server fails, then the script directs U-Boot to try loading from the FAT partition on the SD card.
 
 ## Solution Steps:
-1) **Create the U-Boot Script:** Develop a script named ubootScript_imageLoading with the necessary commands to first attempt loading the Zimage file from the TFTP server. If the loading from the TFTP server fails, instruct the script to try loading from the FAT partition in the SD card.
 
-## ubootScript_imageLoading 
+
+## 1) Create the U-Boot Script:
+Develop a script named ubootScript_imageLoading with the necessary commands to first attempt loading the Zimage file from the TFTP server. If the loading from the TFTP server fails, instruct the script to try loading from the FAT partition in the SD card.
+
+### ubootScript_imageLoading 
 ```bash
 setenv ipaddr 100.101.102.102
 setenv serverip 100.101.102.100
@@ -25,9 +28,10 @@ run LOAD_FROM_FAT
 
 ---
 
-2) **Convert the Script to Binary:** Develop a bash script named bashscript_MakeUbootScriptAsBinary to convert the U-Boot script into a binary format that U-Boot can execute.
+## 2) Convert the Script to Binary:
+Develop a bash script named bashscript_MakeUbootScriptAsBinary to convert the U-Boot script into a binary format that U-Boot can execute.
 
-## bashscript_MakeUbootScriptAsBinary
+### bashscript_MakeUbootScriptAsBinary
 ```bash
 #!/usr/bin/bash
 
@@ -60,7 +64,8 @@ bash
 
 ---
 
-3) **Integration with U-Boot:** Configure U-Boot's bootcmd variable to execute the binary version of the script.
+## 3) Integration with U-Boot:
+Configure U-Boot's bootcmd variable to execute the binary version of the script.
 
 ```bash
 bootcmd= load mmc 0:1 0x60050000 ~/My_Scripts/u-boot_script.bin; source 0x60050000
@@ -68,9 +73,10 @@ bootcmd= load mmc 0:1 0x60050000 ~/My_Scripts/u-boot_script.bin; source 0x600500
 
 ---
 
-- **Test with QEMU:** Utilize a script named bashscript_QemuStartUboot to start QEMU with the U-Boot environment and verify that the script is executed successfully.
+## 4) Test with QEMU:
+Utilize a script named bashscript_QemuStartUboot to start QEMU with the U-Boot environment and verify that the script is executed successfully.
 
-## bashscript_QemuStartUboot
+### bashscript_QemuStartUboot
 
 ```bash
 #!/usr/bin/bash
