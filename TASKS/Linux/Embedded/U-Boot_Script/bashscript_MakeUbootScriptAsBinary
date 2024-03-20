@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+if [ $# -ne 4 ]; then
+echo "Please enter your arguments as: $0 <PATH/input_script> <script_load_address> <uboot_entry_point> <PATH/output_file_name>"
+exit 1
+fi
+
+PATH_for_input_script="$1"
+script_load_address="$2"
+uboot_entry_point="$3"
+PATH_and_output_file_name="$4"
+
+output_dir=$(dirname "$PATH_and_output_file_name")
+
+if [ ! -f "$PATH_for_input_script" ]; then 
+echo "Error: Script file '$PATH_for_input_script' not found."
+exit 1
+fi
+
+if [ ! -d "$output_dir" ]; then 
+echo "Error: PATH for output .bin file '$output_dir' doesn't exist"
+exit 1
+fi
+
+sudo mkimage -A arm -T script -C none -a "$script_load_address" -e "$uboot_entry_point" -n 'MyScript' -d "$PATH_for_input_script" "$PATH_and_output_file_name"
+
+bash
