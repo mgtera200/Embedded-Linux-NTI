@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+if [ $# -ne 3 ]; then
+echo "Please enter your arguments as: $0 <PATH/u-boot/u-boot> <PATH/sd.img> <PATH/tap_script>"
+exit 1
+fi
+
+PATH_for_uboot_uboot="$1"
+PATH_for_sd_img="$2"
+PATH_for_tap_script="$3"
+
+if [ ! -f "$PATH_for_uboot_uboot" ]; then 
+echo "Error: u-boot file '$PATH_for_uboot_uboot' not found."
+exit 1
+fi
+
+if [ ! -f "$PATH_for_sd_img" ]; then 
+echo "Error: sd.img '$PATH_for_sd_img' not found."
+exit 1
+fi
+
+if [ ! -f "$PATH_for_tap_script" ]; then 
+echo "Error: tap script '$PATH_for_tap_script' not found."
+exit 1
+fi
+
+sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel "$PATH_for_uboot_uboot" -sd "$PATH_for_sd_img" -net tap,script="$PATH_for_tap_script" -net nic
+bash
