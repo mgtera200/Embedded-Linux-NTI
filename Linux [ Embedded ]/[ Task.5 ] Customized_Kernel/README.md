@@ -71,7 +71,7 @@ cp linux/arch/arm/boot/zImage /srv/tftp/
 cp linux/arch/arm/boot/dts/*-ca9.dtb /srv/tftp/
 ```
 
-#### Start Qemu to boot on U-boot ( using script i made on previous task ):
+#### Start Qemu to boot on U-boot ( Using script i made on Task.4.1 ):
 
 ```bash
 bashscript_QemuStartUboot ~/u-boot/u-boot ~/sdCard/sd.img ~/sdCard/tftp_bash
@@ -90,13 +90,61 @@ saveenv
 #### Using "ubootScript_imageLoading" Script:
 
 - Load kernel image `zImage`, DTB `vexpress-v2p-ca9.dtb` from TFTP into RAM and then boot the kernel with its device tree.
+
+```bash
+setenv ipaddr 100.101.102.102
+setenv serverip 100.101.102.100
+
+setenv LOAD_SUCCESS "false"
+
+setenv LOAD_FROM_SERVER 'echo "Loading from Server.."; if tftp $kernel_addr_r zImage; then if tftp $fdt_addr_r vexpress-v2p-ca9.dtb; then echo "Loading zImage and dtb from Server is DONE!"; bootz $kernel_addr_r - $fdt_addr_r; else echo "Failed to load dtb from server"; fi; else echo "Failed to load zImage from Server!"; setenv LOAD_SUCCESS "true"; fi'
+
+setenv LOAD_FROM_FAT 'echo "Loading from FAT.."; if "$LOAD_SUCCESS" != "true"; then if mmc dev; then if fatload mmc 0:1 $kernel_addr_r zImage; then if fatload mmc 0:1 $fdt_addr_r vexpress-v2p-ca9.dtb; then echo "Loading zImage and dtb from FAT is DONE!"; bootz $kernel_addr_r - $fdt_addr_r; else echo "Failed to load dtb from FAT"; setenv LOAD_SUCCESS "true"; fi; else echo "Failed to load zImage from FAT"; fi; else echo "mmc device not found"; fi; else echo "Error: Already Loaded from Server"; fi'
+
+run LOAD_FROM_SERVER
+
+run LOAD_FROM_FAT
+
+```
 	
 #### Using "bashscript_MakeUbootScriptAsBinary" Script:
 
 - Convert the uboot script into binary
+
+```bash
+#!/usr/bin/bash
+
+if [ $# -ne 4 ]; then
+echo "Please enter your arguments as: $0 <PATH/input_script> <script_load_address> <uboot_entry_point> <PATH/output_file_name>"
+exit 1
+fi
+
+PATH_for_input_script="$1"
+script_load_address="$2"
+uboot_entry_point="$3"
+PATH_and_output_file_name="$4"
+
+output_dir=$(dirname "$PATH_and_output_file_name")
+
+if [ ! -f "$PATH_for_input_script" ]; then 
+echo "Error: Script file '$PATH_for_input_script' not found."
+exit 1
+fi
+
+if [ ! -d "$output_dir" ]; then 
+echo "Error: PATH for output .bin file '$output_dir' doesn't exist"
+exit 1
+fi
+
+sudo mkimage -A arm -T script -C none -a "$script_load_address" -e "$uboot_entry_point" -n 'MyScript' -d "$PATH_for_input_script" "$PATH_and_output_file_name"
+
+bash
+```
 	
 #### Configure U-Boot's bootcmd variable to execute the binary version of the script in RAM:
 
-- As explained in Task.4.1 -> " Integration with U-Boot " Section
+```bash
+bootcmd= load mmc 0:1 0x60050000 ~/My_Scripts/u-boot_script.bin; source 0x60050000
+```
 
 # THE KERNEL WILL PANIC BECAUSE THERE IS NO ROOTFILE SYSTEM !!!
