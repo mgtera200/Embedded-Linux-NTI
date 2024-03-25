@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+echo "Please enter your arguments as: $0 </dev/loop>"
+exit 1
+fi
+
+DISK="$1"
+
+sudo umount ~/sdCard/sd
+sudo umount ~/sdCard/sd2
+
+sudo losetup -d "$DISK"
+
+
+
