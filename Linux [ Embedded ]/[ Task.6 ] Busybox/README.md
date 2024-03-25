@@ -43,7 +43,7 @@ Generate the rootfs
 ```bash
 make install
 ```
-**This will create folder name _install has all binary**
+_This will create folder name _install has all binaries_
 
 ---
 
