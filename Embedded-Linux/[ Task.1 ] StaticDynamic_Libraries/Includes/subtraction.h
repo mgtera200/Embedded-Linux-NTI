@@ -1,1 +1,0 @@
-double sub(float ,float );
