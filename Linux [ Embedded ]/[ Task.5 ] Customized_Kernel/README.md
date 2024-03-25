@@ -1,4 +1,4 @@
-# Customizing the Linux Kernel for ARM Cortex-A9 Architecture on Vexpress
+# Customizing the Linux Kernel for ARM Cortex-A9 Architecture on Vexpress [ Qemu ]
 
 The Linux kernel is the foundational component of the Linux operating system, responsible for managing hardware resources, processes, and system calls. This guide outlines the process of customizing and building the Linux kernel tailored for ARM Cortex-A9 architecture using the arm-linux-cortexa9 compiler for the Vexpress platform.
 
