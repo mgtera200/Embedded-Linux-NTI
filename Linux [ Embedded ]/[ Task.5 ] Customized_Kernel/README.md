@@ -173,4 +173,4 @@ Configure U-Boot's bootcmd variable to execute the binary version of the script 
 bootcmd= load mmc 0:1 0x60050000 ~/My_Scripts/u-boot_script.bin; source 0x60050000
 ```
 
-_THE KERNEL WILL PANIC BECAUSE THERE IS NO ROOTFILE SYSTEM !!!_
+_Note: THE KERNEL WILL PANIC BECAUSE THERE IS NO ROOTFILE SYSTEM !!!_
