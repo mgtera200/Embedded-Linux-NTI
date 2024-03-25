@@ -79,7 +79,7 @@ make -j4 ARCH=arm CROSS_COMPILE=PathToCOmpiler/arm-cortex_a9-linux-gnueabihf- IN
 ```
 
 
-_Kernel modules are put into the directory /lib/modules/[kernel version], relative to the root of the filesystem._
+_Note: Kernel modules are put into the directory /lib/modules/[kernel version], relative to the root of the filesystem._
 
 ---
 
