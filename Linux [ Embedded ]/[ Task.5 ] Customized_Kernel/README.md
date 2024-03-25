@@ -79,7 +79,7 @@ make -j4 ARCH=arm CROSS_COMPILE=PathToCOmpiler/arm-cortex_a9-linux-gnueabihf- IN
 ```
 
 
-Kernel modules are put into the directory /lib/modules/[kernel version], relative to the root of the filesystem.
+**Kernel modules are put into the directory /lib/modules/[kernel version], relative to the root of the filesystem.**
 
 ---
 
@@ -113,7 +113,7 @@ saveenv
 ## Using my own Bash Scripts
 
 
-Using "ubootScript_imageLoading" Script:
+Using **"ubootScript_imageLoading"** Script:
 
 - Load kernel image `zImage`, DTB `vexpress-v2p-ca9.dtb` from TFTP into RAM and then boot the kernel with its device tree.
 
@@ -133,7 +133,7 @@ run LOAD_FROM_FAT
 
 ```
 	
-Using "bashscript_MakeUbootScriptAsBinary" Script:
+Using **"bashscript_MakeUbootScriptAsBinary"** Script:
 
 - Convert the uboot script into binary
 

@@ -43,7 +43,7 @@ Generate the rootfs
 ```bash
 make install
 ```
-This will create folder name _install has all binary
+**This will create folder name _install has all binary**
 
 ---
 
@@ -76,7 +76,7 @@ touch ./etc/inittab
 
 ## Mounting RootFS via SD Card
 
-Mounting SDcard using my bash script " bashscript_SDcardMount " :
+Mounting SDcard using my bash script **" bashscript_SDcardMount "** :
 ```bash
 #!/usr/bin/bash
 
@@ -102,7 +102,7 @@ Copy the root filesystem to the SD card:
 cd rootfs
 cp -r * ~/sdCard/sd2
 ```
-Unmount the SD card using my bash script " bashscript_SDcardUmount " :
+Unmount the SD card using my bash script **" bashscript_SDcardUmount "** :
 
 ```bash
 #!/bin/bash
@@ -158,7 +158,7 @@ mount -t sysfs nodev /sys
 
 ```
 
-Ensure execution permission for the rcS script:
+**Ensure execution permission for the rcS script:**
 
 ```sh
 #inside `rootfs` folder
