@@ -4,7 +4,7 @@ The Linux kernel is the foundational component of the Linux operating system, re
 
 ## Downloading the Linux Kernel
 
-Clone the Linux kernel repository from the official source:
+### Clone the Linux kernel repository from the official source:
 
 ```bash
 git clone --depth=1 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
@@ -23,7 +23,7 @@ make ARCH=arm kernelversion
 
 ## Kernel Configuration
 
-Ensure the following configurations are set in the kernel:
+### Ensure the following configurations are set in the kernel:
 
 1) Enable devtmpfs
 2) Change kernel compression to XZ
@@ -31,22 +31,22 @@ Ensure the following configurations are set in the kernel:
 
 ## Building the Kernel
 
-Export compiler and architecture variables:
+### Export compiler and architecture variables:
 
 ```bash
 export CROSS_COMPILE=PathToCompiler/arm-linux-cortexa9Compiler
 export ARCH=arm
 ```
 
-Set maximum open file descriptors:
+### Set maximum open file descriptors:
 ```bash
 ulimit -n 8192
 ```
-Configure the kernel:
+### Configure the kernel:
 ```bash
 make menuconfig
 ```
-Build the kernel, modules, and device tree blobs:
+### Build the kernel, modules, and device tree binary:
 
 ```bash
 make -j4 zImage modules dtbs
@@ -54,7 +54,7 @@ make -j4 zImage modules dtbs
 
 ## Compiling Modules and Storing in Rootfs
 
-Install compiled modules into the root filesystem staging area:
+### Install compiled modules into the root filesystem staging area:
 
 ```bash
 make -j4 ARCH=arm CROSS_COMPILE=PathToCOmpiler/arm-cortex_a9-linux-gnueabihf- INSTALL_MOD_PATH=$HOME/rootfs modules_install
@@ -64,20 +64,20 @@ Kernel modules are put into the directory /lib/modules/[kernel version], relativ
 
 ## Booting from TFTP Server
 
-Copy zImage and device tree blobs to the TFTP server:
+### Copy zImage and device tree binary to the TFTP server:
 
 ```bash
 cp linux/arch/arm/boot/zImage /srv/tftp/
 cp linux/arch/arm/boot/dts/*-ca9.dtb /srv/tftp/
 ```
 
-Start Qemu to boot on U-boot ( using script i made on previous task )
+### Start Qemu to boot on U-boot ( using script i made on previous task ):
 
 ```bash
 bashscript_QemuStartUboot ~/u-boot/u-boot ~/sdCard/sd.img ~/sdCard/tftp_bash
 ```
 
-Set the bootargs:
+### Set the bootargs:
 
 
 ```bash
@@ -87,12 +87,16 @@ saveenv
 
 ## Using my own Bash Scripts
 
-- Using "ubootScript_imageLoading" Script:
-	- Load kernel image `zImage`, DTB `vexpress-v2p-ca9.dtb` from TFTP into RAM and then boot the kernel with its device tree.
-	
-- Using "bashscript_MakeUbootScriptAsBinary" Script:
-	- Convert the uboot script into binary
-	
-- Configure U-Boot's bootcmd variable to execute the binary version of the script in RAM as explained in Task.4.1 -> Integration with U-Boot Section
+### Using "ubootScript_imageLoading" Script:
 
-## THE KERNEL WILL PANIC BECAUSE THERE IS NO ROOTFILE SYSTEM !!!
+- Load kernel image `zImage`, DTB `vexpress-v2p-ca9.dtb` from TFTP into RAM and then boot the kernel with its device tree.
+	
+### Using "bashscript_MakeUbootScriptAsBinary" Script:
+
+- Convert the uboot script into binary
+	
+### Configure U-Boot's bootcmd variable to execute the binary version of the script in RAM:
+
+- As explained in Task.4.1 -> " Integration with U-Boot " Section
+
+# THE KERNEL WILL PANIC BECAUSE THERE IS NO ROOTFILE SYSTEM !!!
