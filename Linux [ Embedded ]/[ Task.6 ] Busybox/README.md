@@ -1,6 +1,6 @@
 # Customizing Root File System with BusyBox for ARM Cortex-A9 on Vexpress [ Qemu ]
 
-**BusyBox** is a versatile software suite providing compact implementations of several standard Unix utilities. It's commonly used in embedded systems and environments with limited resources due to its small size and efficiency.
+BusyBox is a versatile software suite providing compact implementations of several standard Unix utilities. It's commonly used in embedded systems and environments with limited resources due to its small size and efficiency.
 
 ## Downloading BusyBox
 
@@ -14,7 +14,7 @@ cd busybox/
 
 ## Configuring BusyBox
 
-#### Use menuconfig to configure BusyBox according to your requirements:
+Use menuconfig to configure BusyBox according to your requirements:
 
 
 ```bash
@@ -24,22 +24,22 @@ make menuconfig
 
 ## Compiling BusyBox
 
-#### Export the compiler and architecture variables:
+Export the compiler and architecture variables:
 
 ```bash
 export CROSS_COMPILE=Path/arm-cortexa9_neon-linux-musleabihf-
 export ARCH=arm
 ```
-#### Configure BusyBox for static build:
+Configure BusyBox for static build:
 ```bash
 make menuconfig
 ```
 
-#### Build BusyBox:
+Build BusyBox:
 ```bash
 make
 ```
-#### Generate the rootfs
+Generate the rootfs
 ```bash
 make install
 ```
@@ -50,7 +50,7 @@ This will create folder name _install has all binary
 ## Creating the Root File System
 
 
-#### Set up the root filesystem by copying BusyBox binaries:
+Set up the root filesystem by copying BusyBox binaries:
 
 ```bash
 # to go out from busybox directory
@@ -76,7 +76,7 @@ touch ./etc/inittab
 
 ## Mounting RootFS via SD Card
 
-#### Mounting SDcard using my bash script " bashscript_SDcardMount " :
+Mounting SDcard using my bash script " bashscript_SDcardMount " :
 ```bash
 #!/usr/bin/bash
 
@@ -95,14 +95,14 @@ fi
 bash
 ```
 
-#### Copy the root filesystem to the SD card:
+Copy the root filesystem to the SD card:
 
 
 ```bash
 cd rootfs
 cp -r * ~/sdCard/sd2
 ```
-#### unmount the SD card using my bash script " bashscript_SDcardUmount " :
+Unmount the SD card using my bash script " bashscript_SDcardUmount " :
 
 ```bash
 #!/bin/bash
@@ -125,7 +125,7 @@ sudo losetup -d "$DISK"
 
 ## Configuring Inittab
 
-#### We need to setup " inittab " file because it's the first thing that the **init** process look at
+We need to setup " inittab " file because it's the first thing that the **init** process look at
 
 ```bash
 # inittab file 
@@ -158,7 +158,7 @@ mount -t sysfs nodev /sys
 
 ```
 
-#### Ensure execution permission for the rcS script:
+Ensure execution permission for the rcS script:
 
 ```sh
 #inside `rootfs` folder

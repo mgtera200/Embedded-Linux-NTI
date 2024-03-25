@@ -4,90 +4,116 @@ The Linux kernel is the foundational component of the Linux operating system, re
 
 ## Downloading the Linux Kernel
 
-#### Clone the Linux kernel repository from the official source:
+Clone the Linux kernel repository from the official source:
 
 ```bash
 git clone --depth=1 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 cd linux
 ```
 
+---
+
 ## Configuring the Kernel
-#### Configure the kernel for the Vexpress platform:
+
+
+Configure the kernel for the Vexpress platform:
 ```bash
 make ARCH=arm vexpress_defconfig
 ```
-#### Identify the kernel version:
+
+
+Identify the kernel version:
 ```bash
 make ARCH=arm kernelversion
 ```
 
+---
+
 ## Kernel Configuration
 
-#### Ensure the following configurations are set in the kernel:
+
+Ensure the following configurations are set in the kernel:
 
 1) Enable devtmpfs
 2) Change kernel compression to XZ
 3) Personalize kernel local version to your name and append '-v1.0'
 
+---
+
 ## Building the Kernel
 
-#### Export compiler and architecture variables:
+Export compiler and architecture variables:
 
 ```bash
 export CROSS_COMPILE=PathToCompiler/arm-linux-cortexa9Compiler
 export ARCH=arm
 ```
 
-#### Set maximum open file descriptors:
+Set maximum open file descriptors:
 ```bash
 ulimit -n 8192
 ```
-#### Configure the kernel:
+
+
+Configure the kernel:
 ```bash
 make menuconfig
 ```
-#### Build the kernel, modules, and device tree binary:
+
+
+Build the kernel, modules, and device tree binary:
 
 ```bash
 make -j4 zImage modules dtbs
 ```
 
+---
+
 ## Compiling Modules and Storing in Rootfs
 
-#### Install compiled modules into the root filesystem staging area:
+
+Install compiled modules into the root filesystem staging area:
 
 ```bash
 make -j4 ARCH=arm CROSS_COMPILE=PathToCOmpiler/arm-cortex_a9-linux-gnueabihf- INSTALL_MOD_PATH=$HOME/rootfs modules_install
 ```
 
+
 Kernel modules are put into the directory /lib/modules/[kernel version], relative to the root of the filesystem.
+
+---
 
 ## Booting from TFTP Server
 
-#### Copy zImage and device tree binary to the TFTP server:
+
+Copy zImage and device tree binary to the TFTP server:
 
 ```bash
 cp linux/arch/arm/boot/zImage /srv/tftp/
 cp linux/arch/arm/boot/dts/*-ca9.dtb /srv/tftp/
 ```
 
-#### Start Qemu to boot on U-boot ( Using script i made on Task.4.1 ):
+
+Start Qemu to boot on U-boot ( Using script i made on Task.4.1 ):
 
 ```bash
 bashscript_QemuStartUboot ~/u-boot/u-boot ~/sdCard/sd.img ~/sdCard/tftp_bash
 ```
 
-#### Set the bootargs:
+
+Set the bootargs:
 
 
 ```bash
 bootargs=console=ttyAMA0 root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait init=/sbin/init
 saveenv
 ```
+---
 
 ## Using my own Bash Scripts
 
-#### Using "ubootScript_imageLoading" Script:
+
+Using "ubootScript_imageLoading" Script:
 
 - Load kernel image `zImage`, DTB `vexpress-v2p-ca9.dtb` from TFTP into RAM and then boot the kernel with its device tree.
 
@@ -107,7 +133,7 @@ run LOAD_FROM_FAT
 
 ```
 	
-#### Using "bashscript_MakeUbootScriptAsBinary" Script:
+Using "bashscript_MakeUbootScriptAsBinary" Script:
 
 - Convert the uboot script into binary
 
@@ -141,7 +167,7 @@ sudo mkimage -A arm -T script -C none -a "$script_load_address" -e "$uboot_entry
 bash
 ```
 	
-#### Configure U-Boot's bootcmd variable to execute the binary version of the script in RAM:
+Configure U-Boot's bootcmd variable to execute the binary version of the script in RAM:
 
 ```bash
 bootcmd= load mmc 0:1 0x60050000 ~/My_Scripts/u-boot_script.bin; source 0x60050000
