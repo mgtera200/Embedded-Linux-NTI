@@ -1,15 +1,15 @@
 # QemuVexpress-KernelCraft Project - [ [ Project Video ] ](https://drive.google.com/file/d/158cRNEEM9KCw2eNmoWurR6eS1SauR_vy/view?usp=sharing)
 
-The "QemuVexpress-KernelCraft Project" is a meticulously documented endeavor aimed at crafting a tailored Linux kernel environment for the ARM Cortex-A9 architecture. Each customization process has been meticulously documented step-by-step on GitHub, ensuring transparency, reproducibility, and accessibility for future developers and enthusiasts.
+The QemuVexpress-KernelCraft Project is a comprehensive endeavor aimed at customizing and deploying a tailored Linux kernel on the ARM Cortex-A9-based Vexpress board using the QEMU emulator. This project encompasses various stages, including toolchain customization, bootloader configuration, kernel compilation, root filesystem setup, system initialization, and booting the kernel on the board.
 
 ## Custom ARM Toolchain Setup:
 
-Detailed documentation for the custom ARM toolchain setup process can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(2)%20Customized%20Toolchain).
+A specialized ARM toolchain tailored for the Cortex-A9 architecture was configured to ensure compatibility and optimal performance, The setup process can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(2)%20Customized%20Toolchain).
 
 
 ## Custom U-Boot Configuration:
 
-The step-by-step guide for configuring U-Boot to meet the specific requirements of the Vexpress board is documented -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(3)%20Customized%20U-Boot).
+The U-Boot bootloader was customized to facilitate the boot process and interact with the hardware components of the Vexpress board effectively, The step-by-step guide is documented -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(3)%20Customized%20U-Boot).
 
 
 ## Kernel Image and Device Tree Blob (DTB) Customization:
@@ -21,7 +21,11 @@ Detailed instructions for configuring the kernel image and Device Tree Blob (DTB
 
 Documentation for generating the root file system using BusyBox, customizing it to provide essential utilities and libraries, and configuring the initialization process through the `/etc/inittab` file and executing the `rcS` script is available -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(5)%20Busybox).
 
+## Booting on the Board:
+
+The customized kernel was successfully booted on the Vexpress board using the QEMU emulator, demonstrating the functionality and compatibility of the tailored setup. Shell access was achieved, and a user was created on the kernel, as showcased in the Project Video.
+
 ---
 
-This approach ensures that all project documentation is easily accessible and serves as a valuable resource for developers and enthusiasts interested in replicating or extending the project's functionality.
+This project represents a meticulous effort to optimize the Linux kernel for the Vexpress board, showcasing the versatility and adaptability of embedded Linux systems in diverse environments.
 
