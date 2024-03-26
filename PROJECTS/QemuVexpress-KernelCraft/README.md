@@ -6,19 +6,16 @@ The "QemuVexpress-KernelCraft Project" is a meticulously documented endeavor aim
 
 Detailed documentation for the custom ARM toolchain setup process can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(2)%20Customized%20Toolchain).
 
----
 
 ## Custom U-Boot Configuration:
 
 The step-by-step guide for configuring U-Boot to meet the specific requirements of the Vexpress board is documented -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(3)%20Customized%20U-Boot).
 
----
 
 ## Kernel Image and Device Tree Blob (DTB) Customization:
 
 Detailed instructions for configuring the kernel image and Device Tree Blob (DTB) to accurately describe the hardware components of the Vexpress board can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(4)%20Customized%20Kernel).
 
----
 
 ## Root File System Generation and Init Process Configuration:
 
