@@ -62,8 +62,14 @@ mkdir rootfs
 # copy the content inside the _install into rootfs
 cp -rp ./busybox/_install/ ./rootfs
 
+# copy the content of sysroot from x-tools into rootfs
+sudo rsync -a ./x-tools/arm-cortexa9_neon-linux-musleabihf/arm-cortexa9_neon-linux-musleabihf/sysroot/* ./rootfs/
+
 # change directory to rootfs
 cd rootfs
+
+# change rootfs owner to be root
+sudo chown -R root:root *
 
 # create the rest folder for rootfs
 mkdir -p ./dev ./etc
