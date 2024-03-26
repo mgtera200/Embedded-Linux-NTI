@@ -1,4 +1,4 @@
-# QemuVexpress-KernelCraft Project
+# QemuVexpress-KernelCraft Project - [ Project Video ](https://drive.google.com/file/d/158cRNEEM9KCw2eNmoWurR6eS1SauR_vy/view?usp=sharing)
 
 The "QemuVexpress-KernelCraft Project" is a meticulously documented endeavor aimed at crafting a tailored Linux kernel environment for the ARM Cortex-A9 architecture. Each customization process has been meticulously documented step-by-step on GitHub, ensuring transparency, reproducibility, and accessibility for future developers and enthusiasts.
 
