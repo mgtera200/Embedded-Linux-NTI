@@ -192,9 +192,10 @@ vim ~/buildroot-2024.02/package/Config.in
 Edit `Config.in` content by adding these lines under `Target Package` line inside the file:
 
 ```bash
-menu "SIMPLEAPP Packages"
-    source "package/simpleapp/Config.in"
+menu "my_package Packages"
+    source "package/my_package/Config.in"
 endmenu
+
 ```
 
 ---
