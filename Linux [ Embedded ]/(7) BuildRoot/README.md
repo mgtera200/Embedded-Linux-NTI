@@ -125,7 +125,20 @@ Place your source file (e.g., `hello_world.c`) inside this directory:
 cd ~/buildroot-2024.02/package/my_package
 touch hello_world.c
 ```
+
+Insert your Code:
+```bash
+vim hello_world.c
 ---
+
+```bash
+#include <stdio.h>
+
+int main() {
+    printf("Hello, world!\n");
+    return 0;
+}
+```
 
 ## Create a Buildroot Package Configuration:
 
