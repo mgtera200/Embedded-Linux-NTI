@@ -244,3 +244,12 @@ endmenu
 ## Conclusion:
 By following these steps, you've successfully added a custom package to Buildroot and tested it on QEMU.
 
+---
+
+# Results
+
+Here are the screenshots of the results:
+
+![my_package](https://github.com/mgtera200/Embedded-Linux-NTI/assets/127119775/41c046c5-f7a4-4951-8c47-6030a88322d5)
+
+![test_result](https://github.com/mgtera200/Embedded-Linux-NTI/assets/127119775/4935dd11-b0f0-4cdc-b167-b1c6edd30361)
