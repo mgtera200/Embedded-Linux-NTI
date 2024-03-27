@@ -129,7 +129,7 @@ touch hello_world.c
 Insert your Code:
 ```bash
 vim hello_world.c
----
+```
 
 ```bash
 #include <stdio.h>
@@ -139,6 +139,8 @@ int main() {
     return 0;
 }
 ```
+
+---
 
 ## Create a Buildroot Package Configuration:
 
