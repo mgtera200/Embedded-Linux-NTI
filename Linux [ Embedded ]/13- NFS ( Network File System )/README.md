@@ -2,16 +2,14 @@
 
 This guide outlines the steps to mount the root filesystem through NFS.
 
-## Steps:
-
-### 1) Install NFS server:
+### Step 1: Install NFS server:
 ```bash
 sudo apt-get install nfs-kernel-server
 ```
 
 ---
 
-### 2) Configure exports file (/etc/exports):
+### Step 2: Configure exports file (/etc/exports):
 - Edit the `/etc/exports` file to specify the shared directory and access permissions.
 - Add the following line:
 
@@ -27,7 +25,7 @@ sudo apt-get install nfs-kernel-server
 
 ---
 
-### 3) Refresh exports:
+### Step 3: Refresh exports:
 
 Updates the NFS server's export table:
 
@@ -37,7 +35,7 @@ sudo exportfs -r
 
 ---
 
-### 4) Configure U-Boot bootargs:
+### Step 4: Configure U-Boot bootargs:
 
 - Edit the U-Boot environment to specify boot arguments (`bootargs`) for the kernel.
 - Set the following bootargs:
