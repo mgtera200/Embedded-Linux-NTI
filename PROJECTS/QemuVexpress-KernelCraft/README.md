@@ -4,22 +4,22 @@ The QemuVexpress-KernelCraft Project is a comprehensive endeavor aimed at custom
 
 ## Custom ARM Toolchain Setup:
 
-A specialized ARM toolchain tailored for the Cortex-A9 architecture was configured to ensure compatibility and optimal performance, The setup process can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(2)%20Customized%20Toolchain).
+A specialized ARM toolchain tailored for the Cortex-A9 architecture was configured to ensure compatibility and optimal performance, The setup process can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/03-%20Toolchain%20Customization).
 
 
 ## Custom U-Boot Configuration:
 
-The U-Boot bootloader was customized to facilitate the boot process and interact with the hardware components of the Vexpress board effectively, The step-by-step guide is documented -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(3)%20Customized%20U-Boot).
+The U-Boot bootloader was customized to facilitate the boot process and interact with the hardware components of the Vexpress board effectively, The step-by-step guide is documented -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/04-%20U-Boot%20Customization).
 
 
 ## Kernel Image and Device Tree Blob (DTB) Customization:
 
-Detailed instructions for configuring the kernel image and Device Tree Blob (DTB) to accurately describe the hardware components of the Vexpress board can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(4)%20Customized%20Kernel).
+Detailed instructions for configuring the kernel image and Device Tree Blob (DTB) to accurately describe the hardware components of the Vexpress board can be found -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/06-%20Kernel%20Customization).
 
 
 ## Root File System Generation and Init Process Configuration:
 
-Documentation for generating the root file system using BusyBox, customizing it to provide essential utilities and libraries, and configuring the initialization process through the `/etc/inittab` file and executing the `rcS` script is available -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/(5)%20Busybox).
+Documentation for generating the root file system using BusyBox, customizing it to provide essential utilities and libraries, and configuring the initialization process through the `/etc/inittab` file and executing the `rcS` script is available -> [here](https://github.com/mgtera200/Embedded-Linux-NTI/tree/main/Linux%20%5B%20Embedded%20%5D/07-%20Busybox%20Customization).
 
 ## Booting on the Board:
 
