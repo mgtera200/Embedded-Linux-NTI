@@ -16,10 +16,13 @@ Install the necessary dependencies and set up your development environment accor
 
 Customize Poky's configuration files and layers to define your target Linux distribution.
 
+---
+
 _Note: Step 1 and Step 2 can be done just by sourcing this script `oe-init-build-env`_
 ```bash
 . oe-init-build-env
 ```
+---
 
 ### Step 3: Build Image
 
