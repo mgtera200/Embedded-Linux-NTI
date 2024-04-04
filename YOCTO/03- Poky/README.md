@@ -35,7 +35,7 @@ bitbake -k core-image-minimal
 
 ### Step 4: Troubleshoot Errors
 
-#### When building the image i had 5 Errors:
+#### While building the image i had 5 Errors:
 
 Error 1 `(perl_5.38.2.bb:do_package) Failed` To resolve it, run:
 
