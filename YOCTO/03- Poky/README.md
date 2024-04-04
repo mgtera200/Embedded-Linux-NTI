@@ -14,7 +14,7 @@ Install the necessary dependencies and set up your development environment accor
 
 ### Step 2: Configure Poky
 
-Customize Poky's configuration files and layers to define your target Linux distribution.
+Customize Poky's configuration files and layers to define your target.
 
 ---
 
