@@ -6,21 +6,21 @@ BitBake is a build tool used to automate the process of building software packag
 
 ## Features
 
-### Recipe-based Build System:
+### 1- Recipe-based Build System
 
 BitBake utilizes recipes written in a domain-specific language (DSL) to specify how software should be built.
 
-### Dependency Resolution:
+### 2- Dependency Resolution
 
 It manages dependencies between software components, ensuring that all necessary prerequisites are built in the correct order.
 
-### Parallel Build Support:
+### 3- Parallel Build Support
 
 BitBake can leverage multiple CPU cores to accelerate the build process, making it efficient for large projects.
 
-### Cross-Compilation Support:
+### 4- Cross-Compilation Support
 It supports cross-compilation, allowing developers to build software for target platforms different from the build system.
-### Flexible Configuration:
+### 5- Flexible Configuration
 BitBake provides mechanisms for customizing build configurations, enabling developers to tailor builds to specific requirements.
 
 ---
