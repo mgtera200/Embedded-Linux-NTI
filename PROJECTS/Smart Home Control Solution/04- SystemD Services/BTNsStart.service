@@ -1,0 +1,14 @@
+[Unit]
+Description=BTNs start
+After=insert_gpioDriver.service
+
+[Service]
+Type=simple
+ExecStart=/home/pi/device_driver/BTNsStart.sh
+#Restart=always
+#StandardOutput=journal
+#StandardError=journal
+#RestartSec=5s   # Delay start by 5 seconds after failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=insert teradriver
+Before=BTNsStart.service DHT11Start.service
+After=network.target
+# RefuseManualStart=true
+
+[Service]
+Type=oneshot
+ExecStart=/home/pi/device_driver/insert_teraDriver_script.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
