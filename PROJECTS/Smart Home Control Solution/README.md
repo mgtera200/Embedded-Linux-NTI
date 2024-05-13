@@ -7,7 +7,7 @@ The Smart Home Control Solution is a comprehensive system designed to provide se
 
 ### 1. Platform Device Driver
 - Configured to be compatible with 9 devices: redled, redled2, redled3, buzzer, button, firesensor, smokesensor, switch1, and switch2.
-- Configured in the device tree (DTB) file of the Raspberry Pi 4.
+- The platform devices are configured in the device tree (DTB) file of the Raspberry Pi 4.
 
 ### 2. C++ App [Button <-> Led]
 - Monitors the LED based on the status of the switch.
