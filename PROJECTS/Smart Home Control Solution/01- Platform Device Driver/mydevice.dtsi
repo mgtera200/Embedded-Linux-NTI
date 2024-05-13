@@ -1,0 +1,89 @@
+
+
+/ {
+
+    tera_device1 {
+
+        compatible = "tera,led";
+        status = "okay";
+		label = "redled";
+		led_value = <1>;
+		gpio_pin = <2>;
+    };
+
+    tera_device2 {
+
+        compatible = "tera,led2";
+        status = "okay";
+		label = "redled2";
+		led_value = <1>;
+		gpio_pin = <3>;
+    };
+
+
+    tera_device3 {
+
+        compatible = "tera,led3";
+        status = "okay";
+		label = "redled3";
+		led_value = <1>;
+		gpio_pin = <4>;
+    };
+    
+
+
+    tera_device4 {
+        
+        compatible = "tera,buzzer";
+        status = "okay";
+        label = "buzzer";
+        buzzer_value = <0>;
+        gpio_pin = <5>;
+
+    };
+    tera_device5 {
+
+        compatible = "tera,button";
+        status = "okay";
+		label = "button";
+		gpio_pin = <6>;
+    };
+
+
+    tera_device6 {
+        
+        compatible = "tera,firesensor";
+        status = "okay";
+        label = "firesensor";
+        gpio_pin = <7>;
+
+    };
+    tera_device7 {
+
+        compatible = "tera,smokesensor";
+        status = "okay";
+		label = "smokesensor";
+		gpio_pin = <8>;
+    };
+
+
+    tera_device8 {
+        
+        compatible = "tera,switch1";
+        status = "okay";
+        label = "switch1";
+        gpio_pin = <9>;
+
+    };
+
+    tera_device9 {
+        
+        compatible = "tera,switch2";
+        status = "okay";
+        label = "switch2";
+        gpio_pin = <10>;
+
+    };
+
+};
+
