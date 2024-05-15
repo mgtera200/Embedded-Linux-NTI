@@ -16,7 +16,7 @@ The Smart Home Control Solution is a comprehensive system designed to provide se
 - Python applications connected to Google's Firebase server.
 - Monitor devices and respond to changes made remotely via the mobile app connected to the server.
 
-### 4. SystemV Scripts
+### 4. SystemD Services
 - Used to bring up all applications in the background upon Raspberry Pi 4 boot.
 - Ensures smooth execution and operation of the smart home control system.
 
