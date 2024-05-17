@@ -1,7 +1,7 @@
 # Smart Home Control Solution [ [Project Video](https://drive.google.com/file/d/1U2LEz5x05SYzt_gTgjR3OJZYtO7zwhnk/view?usp=sharing) ]
 
 
-<img src="https://github.com/mgtera200/Embedded-Linux-NTI/assets/127119775/4568e9ec-70be-4298-b4fe-b462f068a26e" alt="smart" style="width:100%;">
+<img src="https://github.com/mgtera200/Embedded-Linux-NTI/assets/127119775/4568e9ec-70be-4298-b4fe-b462f068a26e" alt="smart" style="width:50%;">
 
 
 
