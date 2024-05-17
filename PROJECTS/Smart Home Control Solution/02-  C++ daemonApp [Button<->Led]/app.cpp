@@ -2,9 +2,15 @@
 #include <iostream>
 using namespace std;
 
+// 
 #define WAIT_TICKS 1000000
 #define DEBOUNCE_WAIT_TICKS 10
 
+// Declare Global Variables for the Switches
+unsigned char switch_1_prev = 0;
+unsigned char switch_2_prev = 0;
+
+// 
 class Driver
 {
 private:
@@ -16,16 +22,22 @@ public:
     void WriteFile(string message);
     string ReadFile();
 };
+
+// 
 Driver::Driver(string path)
 {
     PATH=path;
 }
+
+// 
 void Driver::WriteFile(string message)
 {
     m_fd.open(PATH, ios::out);
     m_fd.write(message.c_str(), message.size());
     m_fd.close();
 }
+
+// 
 string Driver::ReadFile()
 {
     string result;
@@ -35,20 +47,28 @@ string Driver::ReadFile()
     return result;
 }
 
+//..................................................
+
 int main()
 {
-    Driver btn0("/dev/BTN0");
-    Driver led0("/dev/LED0");
-    Driver btn1("/dev/BTN1");
-    Driver led1("/dev/LED1");
-    Driver btn2("/dev/BTN2");
-    Driver led2("/dev/LED2");
+    // Initialize the Instants with the Devices Paths
+    Driver btn0("/dev/button");
+    Driver led0("/dev/redled");
+    Driver btn1("/dev/button2");
+    Driver led1("/dev/redled1");
+    Driver btn2("/dev/button3");
+    Driver led2("/dev/redled2");
+
     cout << "the application is Running ..." << endl;
+
+    // Variables Decleration
     bool currState = false;
     int counter = 0;
     bool changed = false;
+
     while(1)
     {
+        // Reading Push Button
         counter = 0;
         string input = btn0.ReadFile();
 
@@ -103,14 +123,21 @@ int main()
 
         input = btn1.ReadFile();
         input = btn1.ReadFile();
-        led1.WriteFile(input);
+
+        if (input != switch_1_prev){
+            led1.WriteFile(input);
+            switch_1_prev = input;
+        }
 
         input = btn2.ReadFile();
         input = btn2.ReadFile();
-        led2.WriteFile(input);    
+
+        if (input != switch_2_prev){
+            led2.WriteFile(input);
+            switch_2_prev = input;
+        }   
 
         cout << "running"<<endl;
-        // led.WriteFile(input);
         for(int i = 0; i < WAIT_TICKS; i++){}        
     }
     return 0;
