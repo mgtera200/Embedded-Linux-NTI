@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/nti_project">
+<file alias="main.qml">/home/eng-tera/Qt_Projects/nti_project/main.qml</file>
+</qresource>
+</RCC>

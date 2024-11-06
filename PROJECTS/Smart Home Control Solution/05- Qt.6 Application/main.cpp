@@ -3,8 +3,11 @@
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "mqttclient.h"
+#include <QDebug>
+#include <QQmlContext>
+#include "WiFiModel.h"
 
-#include "door.h"
 
 #if QT_CONFIG(permissions)
   #include <QPermission>
@@ -12,9 +15,19 @@
 
 int main(int argc, char *argv[])
 {
+    qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));  // Set environment variable
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+    MQTTClient mqttClient;;
+    engine.rootContext()->setContextProperty("mqttClient", &mqttClient);
+
+    WiFiModel wifiModel;
+    engine.rootContext()->setContextProperty("wifiModel", &wifiModel);
+
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(
             &engine, &QQmlApplicationEngine::objectCreated, &app,
@@ -24,33 +37,10 @@ int main(int argc, char *argv[])
             },
             Qt::QueuedConnection);
 
-    qmlRegisterType<Process>( "Process", 1, 0, "Process" );
 
 
-#if QT_CONFIG(permissions)
-    // If the permissions are not granted, display another main window, which
-    // simply contains the error message.
-    const QUrl noPermissionsUrl(QStringLiteral("qrc:/main_no_permissions.qml"));
-    QCameraPermission cameraPermission;
-    qApp->requestPermission(cameraPermission, [&](const QPermission &permission) {
-        if (permission.status() != Qt::PermissionStatus::Granted) {
-            qWarning("Camera permission is not granted!");
-            engine.load(noPermissionsUrl);
-            return;
-        }
-        QMicrophonePermission micPermission;
-        qApp->requestPermission(micPermission, [&](const QPermission &permission) {
-            if (permission.status() != Qt::PermissionStatus::Granted) {
-                qWarning("Microphone permission is not granted!");
-                engine.load(noPermissionsUrl);
-            } else {
-                engine.load(url);
-            }
-        });
-    });
-#else
+
     engine.load(url);
-#endif
 
     return app.exec();
 }

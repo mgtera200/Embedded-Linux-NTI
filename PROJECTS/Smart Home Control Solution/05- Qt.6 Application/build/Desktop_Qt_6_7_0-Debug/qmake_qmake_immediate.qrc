@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+<file alias="resources">/home/eng-tera/Qt_Projects/nti_project/resources</file>
+</qresource>
+</RCC>

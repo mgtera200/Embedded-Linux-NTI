@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imgs/arrow.png</file>
+        <file>imgs/backarrow.png</file>
+        <file>imgs/bathroom.png</file>
+        <file>imgs/bathtub.png</file>
+        <file>imgs/bedroom.png</file>
+        <file>imgs/bedroom2.png</file>
+        <file>imgs/bellOff.png</file>
+        <file>imgs/bellOn.png</file>
+        <file>imgs/bellRed.png</file>
+        <file>imgs/chef(1).png</file>
+        <file>imgs/chef.png</file>
+        <file>imgs/cooking.png</file>
+        <file>imgs/cooking2.png</file>
+        <file>imgs/door.png</file>
+        <file>imgs/kitchen(2).png</file>
+        <file>imgs/kitchen.png</file>
+        <file>imgs/lightbulbOff.png</file>
+        <file>imgs/lightbulbOn.png</file>
+        <file>imgs/oven.png</file>
+        <file>imgs/people.png</file>
+        <file>imgs/person.png</file>
+        <file>imgs/profile.png</file>
+        <file>imgs/spatula.png</file>
+        <file>imgs/video-player.png</file>
+        <file>main.cpp</file>
+        <file>main.qml</file>
+        <file>nti_project.pro</file>
+        <file>resources.qrc</file>
+        <file>imgs/wifiDisconnected.png</file>
+        <file>imgs/wifiConnected.png</file>
+        <file>imgs/backgroundWithoutLogo.jpg</file>
+    </qresource>
+</RCC>
